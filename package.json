@@ -1,0 +1,45 @@
+{
+  "name": "griss-cells-order",
+  "version": "0.1.0",
+  "description": "Cells order module for Griss",
+  "author": "Luciano Battagliero",
+  "license": "MIT",
+  "homepage": "https://github.com/battaglr/griss-cells-order",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/battaglr/griss-cells-order.git"
+  },
+  "bugs": {
+    "url": "https://github.com/battaglr/griss-cells-order/issues"
+  },
+  "main": "dist/griss-cells-order.min.css",
+  "files": [
+    "dist/griss-cells-order.min.css"
+  ],
+  "dependencies": {
+    "griss": "2.0.0"
+  },
+  "devDependencies": {
+    "bannerize": "1.0.2",
+    "csso": "1.8.2",
+    "gzip-size-cli": "1.0.0",
+    "node-sass": "3.8.0",
+    "griss-gutters": "2.0.0",
+    "griss-cells": "2.0.0"
+  },
+  "scripts": {
+    "build": "node-sass --output-style expanded src/griss-cells-order.scss dist/griss-cells-order.css",
+    "minify": "csso dist/griss-cells-order.css dist/griss-cells-order.min.css",
+    "license": "bannerize dist/griss-cells-order.css --banner=etc/banner.ejs && bannerize dist/griss-cells-order.min.css --banner=etc/banner.min.ejs",
+    "size": "gzip-size dist/griss-cells-order.min.css",
+    "test": "mkdir -p test/modules && cp node_modules/griss/dist/griss.min.css test/modules/ && cp node_modules/griss-gutters/dist/griss-gutters.min.css test/modules/ && cp node_modules/griss-cells/dist/griss-cells.min.css test/modules/",
+    "dist": "npm run build && npm run minify && npm run license && npm run size && npm run test"
+  },
+  "keywords": [
+    "grid",
+    "layout",
+    "css",
+    "scss",
+    "sass"
+  ]
+}
